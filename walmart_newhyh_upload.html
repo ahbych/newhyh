@@ -733,14 +733,12 @@ train2$weekly_sales %&gt;% head()</code></pre>
 load(paste0(file_path, &quot;walmart_upload.RData&quot; ))</code></pre>
 <p><br> <strong>랜덤포레스트 : 30만개의 대량의 데이터여서 PC의 성능
 한계로 조율 모수 학습은 생략하고 기본 랜덤포레스트로 분석</strong></p>
-<pre class="r"><code>#cl &lt;- makePSOCKcluster(7) 
-#registerDoParallel(cl) 
-#set.seed(1234)
-#rf.model&lt;-randomForest(weekly_sales ~., 
-#                       data=train2, 
-#                       ntree=10,    
-#                       mtry=5, 
-#                       importance=T)</code></pre>
+<pre class="r"><code>
+rf.model&lt;-randomForest(weekly_sales ~., 
+                       data=train2, 
+                       ntree=10,    
+                       mtry=5, 
+                       importance=T)</code></pre>
 <p><br> <strong>예측</strong></p>
 <pre class="r"><code>rf.pred_0 &lt;- predict(rf.model,test2 )
 rf.pred_0 %&gt;% head()</code></pre>
