@@ -591,14 +591,14 @@ lambda &lt;- 10^seq(-5,5, length=100)</code></pre>
 <pre class="r"><code>file_path &lt;- &quot;./rdata/&quot;
 #save.image(file=paste0(file_path, &quot;house_price_upload.RData&quot; ))
 load(paste0(file_path, &quot;house_price_upload.RData&quot; ))</code></pre>
-<pre class="r"><code># essb_model3 &lt;- caretList(sale_price~., data = train_b, 
-#                         trControl = control, 
-#                         methodList = c(&#39;rf&#39;,&#39;glmnet&#39;, &#39;glmnet&#39;,&#39;xgbTree&#39;),
-#                         tuneList = list(rft=caretModelSpec(method=&quot;rf&quot;,tuneLength = 10),
-#                                         lasso=caretModelSpec(method=&quot;glmnet&quot;,tuneGrid=expand.grid(alpha=1, lambda=lambda)),
-#                                         ligi =caretModelSpec(method=&quot;glmnet&quot;,tuneGrid=expand.grid(alpha=0, lambda=lambda)),
-#                                        xgbt=caretModelSpec(method=&quot;xgbTree&quot;,tuneLength = 10)
-#                        ))</code></pre>
+<pre class="r"><code>essb_model3 &lt;- caretList(sale_price~., data = train_b, 
+                         trControl = control, 
+                         methodList = c(&#39;rf&#39;,&#39;glmnet&#39;, &#39;glmnet&#39;,&#39;xgbTree&#39;),
+                         tuneList = list(rft=caretModelSpec(method=&quot;rf&quot;,tuneLength = 10),
+                                         lasso=caretModelSpec(method=&quot;glmnet&quot;,tuneGrid=expand.grid(alpha=1, lambda=lambda)),
+                                         ligi =caretModelSpec(method=&quot;glmnet&quot;,tuneGrid=expand.grid(alpha=0, lambda=lambda)),
+                                        xgbt=caretModelSpec(method=&quot;xgbTree&quot;,tuneLength = 10)
+                        ))</code></pre>
 <pre class="r"><code># Stack : glm ==================================================================
 glm_ensemble3 &lt;- caretStack(
   essb_model3,
